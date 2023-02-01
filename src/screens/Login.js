@@ -39,11 +39,15 @@ export default function Login() {
 
     // If credentials are correct it will redirect to home page
     if (json.success) {
+
+      // It is stored in local storage
+      localStorage.setItem("authToken", json.authToken);
       navigate("/");
     }
   };
 
   const onChange = (event) => {
+    
     // It will set the value as per the name
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };

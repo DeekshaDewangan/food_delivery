@@ -8,7 +8,7 @@ const Carousel = () => {
         id="carouselExampleFade"
         className="carousel slide carousel-fade"
         data-bs-rise="carousel"
-        style={{ objectFit: "fill !important" }}
+        style={{ objectFit: "contain !important" }}
       >
         <div className="carousel-inner" id="carousel">
           <div className="carousel-caption" style={{ zIndex: "10" }}>

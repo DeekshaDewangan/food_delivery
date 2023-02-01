@@ -18,6 +18,7 @@ app.use(express.json())
 
 // With the help of app.use when this endpoint will get hit then, createuser.js commands will run
 app.use('/api', require("./Routes/createUser"))
+app.use('/api', require("./Routes/displayData"))
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
