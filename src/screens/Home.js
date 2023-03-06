@@ -115,31 +115,32 @@ const Home = () => {
           foodCat.map((data) => {
             // key is used to distinguish elements
             return (
-              <div className="row mb-3">
+              <div className="row mb-3 g-1">
                 <div key={data._id} className="fs-3 m-3">
                   {data.CategoryName}
                 </div>
                 <hr />
 
                 {/* map function is applied on array not on object */}
-                {foodItem !== [] ? (
+                {foodItem !== [] ? 
                   foodItem
-                    .filter((item) => ((item.CategoryName === data.CategoryName) && (item.name.toLowerCase().includes(search.toLowerCase()))))
-                    .map((filterItems) => {
+                    .filter((item) => (item.CategoryName === data.CategoryName) && (item.name.toLowerCase().includes(search.toLowerCase())))
+                    .map(filterItems => {
                       return (
                         <div
                           key={filterItems._id}
-                          className="col-12 col-md-6 col-lg-3"
+                          className="col-12 col-md-5 col-lg-3"
                         >
-                          <Card
-                            foodName={filterItems.name}
+                        {/* Here we have done change we are sending foodItem instead */}
+                          <Card foodItem = {filterItems}
+                            // foodName={filterItems.name}
                             options={filterItems.options[0]}
-                            imgSrc={filterItems.img}
+                            // imgSrc={filterItems.img}
                           ></Card>
                         </div>
                       );
                     })
-                ) : (
+                 : (
                   <div>No Such Data Found</div>
                 )}
               </div>
